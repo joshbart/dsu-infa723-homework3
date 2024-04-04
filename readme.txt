@@ -92,6 +92,12 @@ ThreeBallot is hereby placed in the public domain�I am not filing for any pate
 Ron is also an inspirational teacher. His co-written influential textbook Introduction to Algorithms [3], based on his undergraduate and graduate courses, has become a classroom standard. More than 500,000 copies were sold in 20 years. "
 
 
+QUESTION 2
+==========
+
+a) For this part of the assignment, I reviewed a research paper titled "MTFS: Merkle-Tree-Based File System" [3]. The researchers proposed a new private file distribution system similar to peer-to-peer file syncing, like Resilio Sync, that also uses Merkle Tree hashing and blockchain transactions. Their file system uses a binary tree network of server nodes, which serve as the primary storage location for files. Files are encrypted locally using proxy re-encryption. An encrypted file that is larger than 1MB is then split into 1MB objects; those smaller are left as is. Each of these objects is hashed and the Merkle Tree is used to create a root hash. The root hash is added to the blockchain as a transaction to validate the integrity of the objects stored. This integrity checking allows the objects to be replicated without errors across multiple network nodes.
+
+2) The use of Merkle Tree in this scenario does not appear to be a necessity, but instead helps to improve efficiency and reduce complexity. By using a Merkle Tree, only the root hash needs to be added to the blockchain as a transaction for each node to verify that it has correctly replicated all of the file objects. If a similar attempt were to be made using a simple hash like SHA-2, a file hash would need to be made and encrypted before the file was divided up into objects. Then each object would require a separate hash to be made and added to the blockchain as a transaction. This would exponentially increase the number of transactions and potentially increase the amount of computational power needed to verify the integrity of each object.
 
 
 REFERENCES
@@ -99,6 +105,7 @@ REFERENCES
 
 [1] Available: https://gist.github.com/davewongillies/7050080
 [2] SMIME man page
+[3] Available: https://arxiv.org/pdf/1902.09100.pdf.
 
 
 
