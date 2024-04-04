@@ -73,7 +73,7 @@ b) Public Key Algorithm: rsaEncryption
 c) RSA Public-Key: (2048 bit)
 
 
-For part d, I used the smime(1) manual page to craft the proper decryption command [2]. The command used was "$ openssl smime -decrypt -binary -aes-256-cbc -in tr
+For part d, I used the SMIME(1SSL) manual page to craft the proper decryption command [2]. The command used was "$ openssl smime -decrypt -binary -aes-256-cbc -in tr
 ackbcipher.txt -inform DER -inkey prikey.pem -out trackbdecrypted.txt".
 
 d) Decrypted message:
@@ -97,7 +97,7 @@ QUESTION 2
 
 a) For this part of the assignment, I reviewed a research paper titled "MTFS: Merkle-Tree-Based File System" [3]. The researchers proposed a new private file distribution system similar to peer-to-peer file syncing, like Resilio Sync, that also uses Merkle Tree hashing and blockchain transactions. Their file system uses a binary tree network of server nodes, which serve as the primary storage location for files. Files are encrypted locally using proxy re-encryption. An encrypted file that is larger than 1MB is then split into 1MB objects; those smaller are left as is. Each of these objects is hashed and the Merkle Tree is used to create a root hash. The root hash is added to the blockchain as a transaction to validate the integrity of the objects stored. This integrity checking allows the objects to be replicated without errors across multiple network nodes.
 
-2) The use of Merkle Tree in this scenario does not appear to be a necessity, but instead helps to improve efficiency and reduce complexity. By using a Merkle Tree, only the root hash needs to be added to the blockchain as a transaction for each node to verify that it has correctly replicated all of the file objects. If a similar attempt were to be made using a simple hash like SHA-2, a file hash would need to be made and encrypted before the file was divided up into objects. Then each object would require a separate hash to be made and added to the blockchain as a transaction. This would exponentially increase the number of transactions and potentially increase the amount of computational power needed to verify the integrity of each object.
+b) The use of Merkle Tree in this scenario does not appear to be a necessity, but instead helps to improve efficiency and reduce complexity. By using a Merkle Tree, only the root hash needs to be added to the blockchain as a transaction for each node to verify that it has correctly replicated all of the file objects. If a similar attempt were to be made using a simple hash like SHA-2, a file hash would need to be made and encrypted before the file was divided up into objects. Then each object would require a separate hash to be made and added to the blockchain as a transaction. This would exponentially increase the number of transactions and potentially increase the amount of computational power needed to verify the integrity of each object.
 
 
 REFERENCES
@@ -106,29 +106,3 @@ REFERENCES
 [1] D. Wongillies. OpenSSL Cheatsheet. (2022). Accessed: Mar. 20, 2024. [Online]. Available: https://gist.github.com/davewongillies/7050080
 [2] The OpenSSL Project Authors. SMIME(1SSL) Linux manual page. (2017). Accessed: Mar. 20, 2024. [Operating System File].
 [3] J. Kan and K.S. Kim. (Apr. 13, 2019). MTFS: Merkle-Tree-Based File System. Presented at 2019 IEEE Int. Conf. on Blockchain and Cryptocurrency. [Online]. Available: https://arxiv.org/pdf/1902.09100.pdf.
-
-
-
-
-
-
-
-(50 points) 2. A Merkle tree (hash tree) is a tree of hashes in which the leaves are hashes of data blocks
-in, for instance, a file or set of files. Nodes further up in the tree are the hashes of their respective
-children. For example, in the picture hash 0 is the result of hashing the result of concatenating hash 0-0
-and hash 0-1. That is, hash 0 = hash( hash 0-0 + hash 0-1 ) where + denotes concatenation.
-Merkle trees can be used to verify any kind of data stored, handled and transferred in and between
-computers. Currently the main use of hash trees is to make sure that data blocks received from other
-peers in a peer-to-peer network are received undamaged and unaltered, and even to check that the
-other peers do not lie and send fake blocks. Suggestions have been made to use hash trees in trusted
-computing systems.
-Answer the following questions:
-a) Give a specific scenario in which the Merkle tree is used to protect the integrity of the data and
-explain how Merkle tree is used to protect the security of the message. (I have enclosed a paper
-in which the Merkle tree is used to protect data security in wireless sensor networks. It is ok to
-use the paper as an example to answer the question a) and explain how Merkle tree works.
-However, you are always encouraged to look for other solutions using Merkle tree other than
-the example given in the paper.)
-b) For the same scenario, think about a single hash function solution, such as SHA-2. Can you
-replace the Merkle tree using the single hash function in the scenario given in a)? Why or why
-not?
