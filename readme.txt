@@ -103,9 +103,9 @@ a) For this part of the assignment, I reviewed a research paper titled "MTFS: Me
 REFERENCES
 ==========
 
-[1] Available: https://gist.github.com/davewongillies/7050080
-[2] SMIME man page
-[3] Available: https://arxiv.org/pdf/1902.09100.pdf.
+[1] D. Wongillies. OpenSSL Cheatsheet. (2022). Accessed: Mar. 20, 2024. [Online]. Available: https://gist.github.com/davewongillies/7050080
+[2] The OpenSSL Project Authors. SMIME(1SSL) Linux manual page. (2017). Accessed: Mar. 20, 2024. [Operating System File].
+[3] J. Kan and K.S. Kim. (Apr. 13, 2019). MTFS: Merkle-Tree-Based File System. Presented at 2019 IEEE Int. Conf. on Blockchain and Cryptocurrency. [Online]. Available: https://arxiv.org/pdf/1902.09100.pdf.
 
 
 
